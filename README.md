@@ -1,4 +1,4 @@
-<p align="center"><a href="http://zoker.me/go/comboot" target="_blank"><img src="https://github.com/TheZoker/ComBoot-Free/blob/master/imageset/site_logo.png" alt="ComBoot Logo" width="500px" style="max-width:300px"/></a></p>
+<p align="center"><a href="http://zoker.me/go/comboot" target="_blank"><img src="http://comboot.de/wp-content/uploads/2014/11/comboot_logo.png" alt="ComBoot Logo" width="500px" style="max-width:300px"/></a></p>
 
 ---
 <p align="center">The Professional phpBB Bootstrap Theme</p>
