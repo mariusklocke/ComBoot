@@ -1,5 +1,11 @@
 <!-- INCLUDE overall_header.html -->
 
+<style>
+	#content-wrapper {
+		width: 100%;
+	}
+</style>
+
 <!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
 	<div class="row">
 		<!-- IF S_DISPLAY_SEARCH -->
@@ -26,39 +32,42 @@
 	</div>
 <!-- ENDIF -->
 
-<!-- INCLUDE forumlist_body.html -->
-
-<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
-	<!-- INCLUDE login_panel.html -->
-<!-- ENDIF -->
-
-<!-- IF S_DISPLAY_ONLINE_LIST -->
-	<!-- INCLUDE online_panel.html -->
-<!-- ENDIF -->
-
-<!-- IF S_DISPLAY_BIRTHDAY_LIST and BIRTHDAY_LIST -->
-<div class="panel panel-info">
-	<div class="panel-heading">
-		<h3 class="panel-title"><i class="fa fa-gift"></i> {L_BIRTHDAYS}</h3>
+<div class="row">
+	<div class="col-md-8">
+		<!-- INCLUDE forumlist_body.html -->
 	</div>
-	<div class="panel-body">
-		<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+	<div class="col-md-4">
+		<!-- INCLUDE tsviewer_panel.html -->
+		
+		<!-- IF S_DISPLAY_ONLINE_LIST -->
+			<!-- INCLUDE online_panel.html -->
+		<!-- ENDIF -->
+		
+		<!-- IF S_DISPLAY_BIRTHDAY_LIST and BIRTHDAY_LIST -->
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="fa fa-gift"></i> {L_BIRTHDAYS}</h3>
+				</div>
+				<div class="panel-body">
+					<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+				</div>
+			</div>
+		<!-- ENDIF -->
+		
+		<!-- IF NEWEST_USER -->
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="fa fa-area-chart"></i> {L_STATISTICS}</h3>
+				</div>
+				<div class="panel-body">
+					<p>{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}</p>
+					<hr/>
+					<p class="{S_CONTENT_FLOW_END}<!-- IF S_USER_LOGGED_IN --> pull-right<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
+					<!-- IF S_USER_LOGGED_IN --><p class="pull-left">{CURRENT_TIME}</p><!-- ENDIF -->
+				</div>
+			</div>
+		<!-- ENDIF -->
 	</div>
 </div>
-<!-- ENDIF -->
-
-<!-- IF NEWEST_USER -->
-<div class="panel panel-info">
-	<div class="panel-heading">
-		<h3 class="panel-title"><i class="fa fa-area-chart"></i> {L_STATISTICS}</h3>
-	</div>
-	<div class="panel-body">
-		<p>{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}</p>
-		<hr/>
-		<p class="{S_CONTENT_FLOW_END}<!-- IF S_USER_LOGGED_IN --> pull-right<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
-		<!-- IF S_USER_LOGGED_IN --><p class="pull-left">{CURRENT_TIME}</p><!-- ENDIF -->
-	</div>
-</div>
-<!-- ENDIF -->
-
+	
 <!-- INCLUDE overall_footer.html -->
